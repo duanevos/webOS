@@ -2,7 +2,7 @@
 Attempting to recreate an operating system inside of a browser
 
 Packages used:
-- Draggable
+- InteractJS
 - Tailwind
 
 <b>Scope</b>
