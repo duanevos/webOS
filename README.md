@@ -1,6 +1,8 @@
 # Portfolio Website
 Attempting to recreate an operating system inside of a browser
 
+Everything is written from scratch :)!
+
 <b>Scope</b>
 - Functioning command line
 - Media player
