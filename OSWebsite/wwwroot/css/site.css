@@ -2,14 +2,14 @@
 
 :root {
     --neutral600: #525252;
-    --neutral400: #a3a3a3;
     --bg: #02A5FF;
-    --headerbg: #e35f5f;
+    --headerbg: #a3a3a3;
+    --violet300: #c4b5fd;
 }
 
 html, body {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    background-color: var(--bg);
+    background-color: var(--violet300);
     overflow: hidden;
 }
 
@@ -27,7 +27,7 @@ html, body {
 
 #header {
     box-shadow: inset -2px -2px 0 0 black, inset 1px 1px 0 0 #d4d4d4, inset -2.5px -2px 0 0 black, inset 2px 2px 0 0 #d4d4d4;
-    background-color: dimgrey;
+    background-color: var(--headerbg);
     padding: 1px;
     user-select: none;
 }
@@ -40,11 +40,10 @@ html, body {
 }
 
 #app {
-    box-shadow: inset -2px -2px 0 0 #171717, inset 2px 2px 0 0 #d4d4d4, inset -2px -2px 0 0 #171717, inset 2px 2px 0 0 #d4d4d4;
+    box-shadow: inset -1px -1px 0 0 #171717, inset 1px 1px 0 0 #d4d4d4, inset -1px -1px 0 0 #171717, inset 1px 1px 0 0 #d4d4d4;
+    position: absolute;
+    filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
 }
-
-
-
 
 /* DEFAULT BLAZOR CSS */
 .valid.modified:not([type=checkbox]) {

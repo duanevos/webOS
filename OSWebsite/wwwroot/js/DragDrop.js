@@ -1,4 +1,4 @@
-﻿const position = { x: 0, y: 0 }
+﻿var position = { x: 0, y: 0 }
 
 interact('.draggable').draggable({
     cursorChecker: function () { return false; },
@@ -14,3 +14,4 @@ interact('.draggable').draggable({
         },
     }
 })
+

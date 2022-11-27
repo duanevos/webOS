@@ -1,18 +1,18 @@
 ﻿<nav id="nav" class="w-screen h-10 bg-neutral-400 text-neutral-900 drop-shadow-lg fixed flex items-center select-none font-semibold">
-    <div class="container ml-3 flex capitalize">
-        <a @onclick="@(() => hideStart = !hideStart)" class="h-7 w-16 bg-neutral-300/50 mr-2">
+    <div class="container ml-3 flex capitalize ">
+        <a @onclick="@(() => hideStart = !hideStart)" class="h-7 w-16 bg-neutral-300/50 mr-2 hover:bg-neutral-300">
             <div id="@(hideStart ? "button" : "button_active")" class="flex justify-center items-center w-full h-full">
                 Start
             </div>
         </a>
-        
-        <a id="button" class="h-7 w-fit p-2 bg-neutral-300/50 )">
+        <span class="mr-2 border-r-2 border-neutral-300/50" />
+        <a id="button" class="h-7 w-fit p-2 bg-neutral-300/50 hover:bg-neutral-300">
            <div class="flex justify-center items-center w-full h-full">
                 About me
             </div>
         </a>
-        
-        <div hidden="@hideStart" id="startmenu" class="h-48 w-48 fixed bg-neutral-400 top-8">
+
+        <div hidden="@hideStart" id="startmenu" class="h-48 w-48 fixed bg-neutral-400 top-8 ">
             <ul class="p-2 text-lg">
                 <li>
                     Shut Down
@@ -34,7 +34,7 @@
         @*
         <div id="divider" class="border-r border-neutral-700"/>
         *@
-        <div id="clock" class="absolute right-3 bg-neutral-300/50">
+        <div id="clock" class="absolute right-3 bg-neutral-300/50 ">
             <span class="p-2">@time</span>
         </div>
     </div>
