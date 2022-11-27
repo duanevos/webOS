@@ -1,12 +1,18 @@
-﻿<nav id="nav" class="w-screen h-10 bg-neutral-400 text-neutral-900 drop-shadow-lg fixed flex items-center select-none">
+﻿<nav id="nav" class="w-screen h-10 bg-neutral-400 text-neutral-900 drop-shadow-lg fixed flex items-center select-none font-semibold">
     <div class="container ml-3 flex capitalize">
-        <a @onclick="OnStartClick" class="h-7 w-16 bg-neutral-300/50 font-semibold">
-            <div id="@(active ? "home_button" : "home_button_active")" class="flex justify-center items-center w-full h-full">
+        <a @onclick="@(() => hideStart = !hideStart)" class="h-7 w-16 bg-neutral-300/50 mr-2">
+            <div id="@(hideStart ? "button" : "button_active")" class="flex justify-center items-center w-full h-full">
                 Start
             </div>
         </a>
         
-        <div hidden="@active" id="startmenu" class="h-48 w-48 fixed bg-neutral-400 top-8">
+        <a id="button" class="h-7 w-fit p-2 bg-neutral-300/50 )">
+           <div class="flex justify-center items-center w-full h-full">
+                About me
+            </div>
+        </a>
+        
+        <div hidden="@hideStart" id="startmenu" class="h-48 w-48 fixed bg-neutral-400 top-8">
             <ul class="p-2 text-lg">
                 <li>
                     Shut Down
@@ -37,7 +43,7 @@
 @code {
     string time = DateTime.Now.ToString("HH:mm");
     Timer clock;
-    bool active = true;
+    bool hideStart = true;
 
     protected override void OnInitialized() => clock = new Timer(Tick, null, 0, 10000);
 
@@ -46,10 +52,4 @@
         time = DateTime.Now.ToString("dd MMMM HH:mm");
         InvokeAsync(StateHasChanged);
     }
-
-    private void OnStartClick(){
-        active = !active;
-        StateHasChanged();
-    }
-
 }

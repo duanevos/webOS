@@ -1,11 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+:root {
+    --neutral600: #525252;
+    --neutral400: #a3a3a3;
+    --bg: #02A5FF;
+    --headerbg: #e35f5f;
+}
+
 html, body {
-    font-family: 'Chakra Petch', sans-serif;
-    background-color: #6366f1;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background-color: var(--bg);
     overflow: hidden;
 }
 
+#button_active{
+    border-top: inset 2px black;
+    border-left: inset 2px black;
+    border-bottom: inset 2px white;
+    border-right: inset 2px white;
+    background-color: var(--neutral400);
+}
+
+#button {
+    box-shadow: inset -1px -1px 0 0 black, inset 1px 1px 0 0 grey, inset -2px -2px 0 0 black, inset 2px 2px 0 0 white;
+}
+
+#header {
+    box-shadow: inset -2px -2px 0 0 black, inset 1px 1px 0 0 #d4d4d4, inset -2.5px -2px 0 0 black, inset 2px 2px 0 0 #d4d4d4;
+    background-color: dimgrey;
+    padding: 1px;
+    user-select: none;
+}
+
+#header p{
+    color: black;
+    font-weight: 500;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+#app {
+    box-shadow: inset -2px -2px 0 0 #171717, inset 2px 2px 0 0 #d4d4d4, inset -2px -2px 0 0 #171717, inset 2px 2px 0 0 #d4d4d4;
+}
+
+
+
+
+/* DEFAULT BLAZOR CSS */
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }

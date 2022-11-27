@@ -1,22 +1,12 @@
 ﻿@page "/"
-@using Microsoft.JSInterop
-@inject IJSRuntime JSRuntime
+@using OSWebsite.Components
 
 <PageTitle>Home</PageTitle>
 
 <div class="flex justify-center items-center h-screen">
 
-    <div id="app" class="h-96 w-96 bg-zinc-200 drop-shadow-lg absolute cursor-default draggable">
-        <div id="header" class="select-none">
-            <div class="font-semibold ml-1">
-                About me
-            </div>
-        </div>
-        <div id="content" class="ml-1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies lacinia, nisl
-        </div>
-    </div>
-
+    <CommandLine />
+    <AboutMe />
 
 </div>
 

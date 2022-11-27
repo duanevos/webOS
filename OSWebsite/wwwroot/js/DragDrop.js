@@ -4,7 +4,6 @@ interact('.draggable').draggable({
     cursorChecker: function () { return false; },
     allowFrom: '#header',
     
-    
     listeners: {
         move(event) {
             position.x += event.dx

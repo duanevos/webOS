@@ -4,7 +4,9 @@
 
 <div class="page">
     <div>
-        <NavMenu />
+        <CascadingValue Value="this">
+            <NavMenu />
+        </CascadingValue>
     </div>
     
     <main>
@@ -13,3 +15,21 @@
         </div>
     </main>
 </div>
+
+@code{
+    List<string> openWindows = new List<string>();
+    public string activeWindow = "";
+
+    public void OnWindowClick(string window)
+    {
+        if (openWindows.Contains(window))
+        {
+            activeWindow = window;
+        }
+        else
+        {
+            openWindows.Add(window);
+            activeWindow = window;
+        }
+    }
+}
