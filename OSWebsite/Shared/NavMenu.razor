@@ -1,0 +1,58 @@
+﻿<nav id="nav" class="w-screen h-10 bg-neutral-400 text-neutral-900 drop-shadow-lg fixed flex items-center select-none">
+    <div class="container ml-3 flex capitalize">
+        <a @onclick="OnStartClick" class="h-7 w-16 bg-neutral-300/50 font-semibold">
+            <div id="@(active ? "home_button" : "home_button_active")" class="flex justify-center items-center w-full h-full">
+                Start
+            </div>
+        </a>
+        
+        <div hidden="@active" id="startmenu" class="h-48 w-48 fixed bg-neutral-400 top-8">
+            <ul class="p-2 text-lg">
+                <li>
+                    Shut Down
+                </li>
+                <li>
+                    <u>R</u>un ...
+                </li>
+                <li>
+                    <u>H</u>elp
+                </li>
+                <li>aa
+                    <u>F</u>ind
+                </li>
+                <li>
+                    <u>P</u>rograms
+                </li>
+            </ul>
+        </div>
+        @*
+        <div id="divider" class="border-r border-neutral-700"/>
+        *@
+
+
+
+        <div id="clock" class="absolute right-3 bg-neutral-300/50">
+            <span class="p-2">@time</span>
+        </div>
+    </div>
+</nav>
+
+@code {
+    string time = DateTime.Now.ToString("HH:mm");
+    Timer clock;
+    bool active = true;
+
+    protected override void OnInitialized() => clock = new Timer(Tick, null, 0, 10000);
+
+    private void Tick(object _)
+    {
+        time = DateTime.Now.ToString("dd MMMM HH:mm");
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void OnStartClick(){
+        active = !active;
+        StateHasChanged();
+    }
+
+}
