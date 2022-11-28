@@ -37,8 +37,16 @@
         StateHasChanged();
     }
 
-    public bool isActiveApp(string app)
+    public int getActiveAppIndex(string app)
     {
-        return activeApps.Contains(app);
+        Console.WriteLine(app + (activeApps.IndexOf(app) * 10));
+        return activeApps.IndexOf(app) * 10;
+    }
+
+    public void setAppIndex(string app)
+    {
+        activeApps.Remove(app);
+        activeApps.Add(app);
+        StateHasChanged();
     }
 }

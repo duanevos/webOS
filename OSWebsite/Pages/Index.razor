@@ -6,14 +6,17 @@
 <PageTitle>Home</PageTitle>
 
 <div class="flex justify-center items-center h-screen">
-    <AboutMe visibility=@MainLayout.isActiveApp("aboutme")/>
-    <CommandLine visibility=@MainLayout.isActiveApp("cmd") />
-
+    <CascadingValue Value="@mainLayout">
+        <AboutMe visibility=@isActiveApp("aboutme") />
+        <CommandLine visibility=@isActiveApp("cmd") />
+    </CascadingValue>
+    
+    
 </div>
 
-@code{
+@code {
     [CascadingParameter]
-    public MainLayout MainLayout { get; set; }
+    public MainLayout mainLayout { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -21,6 +24,12 @@
         {
             await JSRuntime.InvokeVoidAsync("draggable");
         }
+    }
+
+    public bool isActiveApp(string app)
+    {
+        //active app is not set properly please fix!!
+        throw new NotImplementedException();
     }
 }
 

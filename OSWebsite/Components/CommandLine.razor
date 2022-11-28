@@ -1,4 +1,8 @@
-﻿<div hidden="@(visibility)" id="app" class="h-96 w-5/12 bg-neutral-900 drop-shadow-lg absolute cursor-default draggable">
+﻿<div @onclick=@(() => mainLayout.setAppIndex("cmd"))
+     hidden="@(visibility)"
+     id="app"
+     class="h-96 w-5/12 bg-neutral-900 drop-shadow-lg absolute cursor-default draggable z-@mainLayout.getActiveAppIndex("cmd")">
+     
     <div id="header">
         <p>
             C:\admin\sys\cmd.exe
@@ -9,8 +13,8 @@
             <span class="text-violet-400">visitor</span><span class="text-neutral-300">:</span>$ ~
         </p>
         <div id="asciiart" class="text-violet-300 text-xs ml-2">
-                <pre class="mt-0">
-                    
+            <pre class="mt-0">
+
 ██╗░░░██╗░█████╗░░██████╗
 ██║░░░██║██╔══██╗██╔════╝
 ╚██╗░██╔╝██║░░██║╚█████╗░
@@ -21,7 +25,8 @@
 Type 'help' to see the list of available commands.
                 </pre>
         </div>
-        @foreach(string s in output){
+        @foreach (string s in output)
+        {
             @((MarkupString)s)
         }
         @command
@@ -31,6 +36,8 @@ Type 'help' to see the list of available commands.
 @code {
     [Parameter]
     public bool visibility { get; set; }
+    [CascadingParameter]
+    public MainLayout mainLayout { get; set; }
 
     private List<string> output = new List<string>();
 
@@ -44,11 +51,12 @@ Type 'help' to see the list of available commands.
         output.Add(newInput);
     }
 
-    private void Enter(KeyboardEventArgs e){
+    private void Enter(KeyboardEventArgs e)
+    {
         if (e.Key == "Enter")
         {
             output.Add(newInput);
         }
     }
-    
+
 }

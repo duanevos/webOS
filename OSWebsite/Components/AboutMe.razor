@@ -1,4 +1,8 @@
-﻿<div hidden="@(visibility)" id="app" class="h-96 w-1/2 bg-neutral-200 drop-shadow-lg absolute cursor-default draggable">
+﻿<div @onclick=@(() => mainLayout.setAppIndex("aboutme")) 
+    hidden="@(visibility)" 
+    id="app"
+     class="h-96 w-1/2 bg-neutral-200 drop-shadow-lg absolute cursor-default draggable z-@mainLayout.getActiveAppIndex("aboutme")">
+    
     <div id="header">
         <p>
             C:\admin\desktop\aboutme.exe
@@ -23,4 +27,9 @@
 @code {
     [Parameter]
     public bool visibility { get; set; }
+    [CascadingParameter]
+    public MainLayout mainLayout { get; set; }
+
+
+    
 }
