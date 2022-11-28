@@ -11,25 +11,34 @@
     
     <main>
         <div class="pt-11 h-screen">
-            @Body
+            <CascadingValue Value="this">
+                @Body
+            </CascadingValue>
         </div>
     </main>
 </div>
 
 @code{
-    List<string> openWindows = new List<string>();
-    public string activeWindow = "";
+    public List<string> activeApps = new();
+    public string activeApp = "";
 
-    public void OnWindowClick(string window)
+    public void setActiveApp(string app)
     {
-        if (openWindows.Contains(window))
+        if (activeApps.Contains(app))
         {
-            activeWindow = window;
+            activeApp = app;
+            activeApps.Remove(app);
         }
         else
         {
-            openWindows.Add(window);
-            activeWindow = window;
+            activeApp = string.Empty;
+            activeApps.Add(app);
         }
+        StateHasChanged();
+    }
+
+    public bool isActiveApp(string app)
+    {
+        return activeApps.Contains(app);
     }
 }

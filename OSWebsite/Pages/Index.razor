@@ -1,16 +1,26 @@
 ﻿@page "/"
 @using OSWebsite.Components
+@inject IJSRuntime JSRuntime
+
 
 <PageTitle>Home</PageTitle>
 
 <div class="flex justify-center items-center h-screen">
-
-    <CommandLine />
+    <AboutMe visibility=@MainLayout.isActiveApp("aboutme")/>
+    <CommandLine visibility=@MainLayout.isActiveApp("cmd") />
 
 </div>
 
 @code{
+    [CascadingParameter]
+    public MainLayout MainLayout { get; set; }
 
-
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("draggable");
+        }
+    }
 }
 

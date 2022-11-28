@@ -1,4 +1,4 @@
-﻿<div id="app" class="h-96 w-5/12 bg-neutral-900 drop-shadow-lg absolute cursor-default draggable">
+﻿<div hidden="@(visibility)" id="app" class="h-96 w-5/12 bg-neutral-900 drop-shadow-lg absolute cursor-default draggable">
     <div id="header">
         <p>
             C:\admin\sys\cmd.exe
@@ -29,6 +29,9 @@ Type 'help' to see the list of available commands.
 </div>
 
 @code {
+    [Parameter]
+    public bool visibility { get; set; }
+
     private List<string> output = new List<string>();
 
     //Bind doesn't work using a markupstring, find a way around this!!!!
