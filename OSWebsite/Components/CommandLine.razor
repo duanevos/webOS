@@ -4,7 +4,7 @@
             C:\admin\sys\cmd.exe
         </p>
     </div>
-    <div id="content" class="text-sm">
+    <div id="content" @onkeypress="Enter" class="text-sm h-full overflow-y-auto">
         <p class="text-zinc-200 ml-2">
             <span class="text-violet-400">visitor</span><span class="text-neutral-300">:</span>$ ~
         </p>
@@ -21,8 +21,31 @@
 Type 'help' to see the list of available commands.
                 </pre>
         </div>
-        <p class="text-zinc-200 ml-2">
-            <span class="text-violet-400">visitor</span><span class="text-neutral-300">:</span>$
-        </p>
+        @foreach(string s in output){
+            @((MarkupString)s)
+        }
+        @command
     </div>
 </div>
+
+@code {
+    private List<string> output = new List<string>();
+
+    //Bind doesn't work using a markupstring, find a way around this!!!!
+    string command = "";
+    string newInput = "<p class='text-zinc-200 ml-2'><span class='text-violet-400'>visitor</span><span class='text-neutral-300'>:</span>$ <input class='bg-transparent focus:outline-none' @bind='command'/></p>";
+
+    //OnInitialized
+    protected override void OnInitialized()
+    {
+        output.Add(newInput);
+    }
+
+    private void Enter(KeyboardEventArgs e){
+        if (e.Key == "Enter")
+        {
+            output.Add(newInput);
+        }
+    }
+    
+}

@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Components\CommandLine.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Components\CommandLine.razor.css" />
+  </ItemGroup>
+
 </Project>
