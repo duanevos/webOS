@@ -2,7 +2,7 @@
 Attempting to recreate an operating system inside of a browser
 
 Packages used:
-- InteractJS
+- JQuery
 - Tailwind
 
 <b>Scope</b>
