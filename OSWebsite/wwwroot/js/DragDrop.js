@@ -1,3 +1,5 @@
 ﻿function draggable() {
-      $(".draggable").draggable();
+    $(".draggable").draggable({
+        handle: '#header',
+    });
 }

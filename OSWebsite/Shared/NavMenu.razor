@@ -9,12 +9,12 @@
         @* Divider *@
         <span class="mr-2 border-r-2 border-neutral-300/50" />
 
-        <a @onclick="@(() => MainLayout.setActiveApp("aboutme"))" id="@(MainLayout.activeApp.Equals("aboutme") ? "button_active" : "button")" class="h-7 w-fit p-2 bg-neutral-300/50 hover:bg-neutral-300 mr-2">
+        <a @onclick="@(() => MainLayout.activeAppHandler("aboutme"))" id="@(MainLayout.activeApp.Equals("aboutme") ? "button_active" : "button")" class="h-7 w-fit p-2 bg-neutral-300/50 hover:bg-neutral-300 mr-2">
            <div class="flex justify-center items-center w-full h-full">
                 About me
             </div>
         </a>
-        <a @onclick="@(() => MainLayout.setActiveApp("cmd"))" id="@(MainLayout.activeApp.Equals("cmd") ? "button_active" : "button")" class="h-7 w-fit p-2 bg-neutral-300/50 hover:bg-neutral-300">
+        <a @onclick="@(() => MainLayout.activeAppHandler("cmd"))" id="@(MainLayout.activeApp.Equals("cmd") ? "button_active" : "button")" class="h-7 w-fit p-2 bg-neutral-300/50 hover:bg-neutral-300">
             <div class="flex justify-center items-center w-full h-full">
                 Command Prompt
             </div>
@@ -54,11 +54,10 @@
     [CascadingParameter]
     public MainLayout MainLayout { get; set; }
     
-    string time = DateTime.Now.ToString("HH:mm");
-    Timer clock;
-    bool hideStart = true;
-
-
+    private string time = DateTime.Now.ToString("HH:mm");
+    private Timer clock;
+    private bool hideStart = true;
+    
     protected override void OnInitialized() => clock = new Timer(Tick, null, 0, 10000);
 
     private void Tick(object _)
@@ -66,6 +65,4 @@
         time = DateTime.Now.ToString("dd MMMM HH:mm");
         InvokeAsync(StateHasChanged);
     }
-
-    
 }

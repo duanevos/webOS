@@ -8,7 +8,7 @@
             <NavMenu />
         </CascadingValue>
     </div>
-    
+
     <main>
         <div class="pt-11 h-screen">
             <CascadingValue Value="this">
@@ -18,20 +18,30 @@
     </main>
 </div>
 
-@code{
-    public List<string> activeApps = new();
-    public string activeApp = "";
+@code {
+    public List<string> activeApps { get; set; }
+    public string activeApp { get; set; }
 
-    public void setActiveApp(string app)
+    protected override async Task OnInitializedAsync()
+    {
+        activeApp = string.Empty;
+        activeApps = new List<string>();
+    }
+
+    public void activeAppHandler(string app)
     {
         if (activeApps.Contains(app))
         {
-            activeApp = app;
+            if(!activeApps.Last().Equals(app)){
+                setAppIndex(app);
+                return;
+            }
+            activeApp = "";
             activeApps.Remove(app);
         }
         else
         {
-            activeApp = string.Empty;
+            activeApp = app;
             activeApps.Add(app);
         }
         StateHasChanged();
@@ -39,14 +49,14 @@
 
     public int getActiveAppIndex(string app)
     {
-        Console.WriteLine(app + (activeApps.IndexOf(app) * 10));
         return activeApps.IndexOf(app) * 10;
     }
 
     public void setAppIndex(string app)
     {
-        activeApps.Remove(app);
         activeApps.Add(app);
+        activeApps.Remove(app);
+        activeApp = activeApps.Last();
         StateHasChanged();
     }
 }

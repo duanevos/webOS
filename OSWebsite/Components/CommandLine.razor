@@ -1,5 +1,5 @@
 ﻿<div @onclick=@(() => mainLayout.setAppIndex("cmd"))
-     hidden="@(visibility)"
+     hidden="@(!visibility)"
      id="app"
      class="h-96 w-5/12 bg-neutral-900 drop-shadow-lg absolute cursor-default draggable z-@mainLayout.getActiveAppIndex("cmd")">
      
