@@ -40,9 +40,6 @@
             </ul>
         </div>
 
-        @* Divider *@
-        <span class="mr-2 border-r-2 border-neutral-300/50" />
-
         @* Clock *@
         <div id="clock" class="absolute right-3 bg-neutral-300/50 ">
             <span class="p-2">@time</span>
@@ -53,11 +50,11 @@
 @code {
     [CascadingParameter]
     public MainLayout MainLayout { get; set; }
-    
+
     private string time = DateTime.Now.ToString("HH:mm");
     private Timer clock;
     private bool hideStart = true;
-    
+
     protected override void OnInitialized() => clock = new Timer(Tick, null, 0, 10000);
 
     private void Tick(object _)

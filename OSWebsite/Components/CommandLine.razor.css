@@ -1,15 +1,3 @@
-﻿
-.cmdInput {
-    border: none;
-    background-image: none;
-    background-color: transparent;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+﻿.cmd {
+    background-color: #18181b !important;
 }
-
-    .cmdInput:focus{
-        outline: none;
-    }
-
-

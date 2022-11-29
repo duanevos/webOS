@@ -22,7 +22,7 @@
     public List<string> activeApps { get; set; }
     public string activeApp { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         activeApp = string.Empty;
         activeApps = new List<string>();
@@ -56,7 +56,23 @@
     {
         activeApps.Add(app);
         activeApps.Remove(app);
-        activeApp = activeApps.Last();
+        if (activeApps.Count != 0)
+        {
+            activeApp = activeApps.Last();
+        }
         StateHasChanged();
+    }
+
+    public void closeApp(string app)
+    {
+        if (activeApps.Contains(app))
+        {
+            if (activeApp.Equals(app))
+            {
+                activeApp = "";
+            }
+            activeApps.Remove(app);
+            StateHasChanged();
+        }
     }
 }

@@ -1,20 +1,23 @@
 ﻿<div @onclick=@(() => mainLayout.setAppIndex("cmd"))
      hidden="@(!visibility)"
      id="app"
-     class="h-96 w-5/12 bg-neutral-900 drop-shadow-lg absolute cursor-default draggable z-@mainLayout.getActiveAppIndex("cmd")">
-     
+     class="cmd h-96 w-5/12 draggable z-@mainLayout.getActiveAppIndex("cmd")">
+
     <div id="header">
         <p>
             C:\admin\sys\cmd.exe
         </p>
+        <span @onclick=@(() => mainLayout.closeApp("cmd")) id="close_button" class="hover:bg-neutral-300">
+            <i class="fa-solid fa-x font-light text-xs"></i>
+        </span>
     </div>
     <div id="content" @onkeypress="Enter" class="text-sm h-full overflow-y-auto">
-        <p class="text-zinc-200 ml-2">
+
+        <p class="text-zinc-200 ml-2 mt-6">
             <span class="text-violet-400">visitor</span><span class="text-neutral-300">:</span>$ ~
         </p>
         <div id="asciiart" class="text-violet-300 text-xs ml-2">
-            <pre class="mt-0">
-
+            <pre>
 ██╗░░░██╗░█████╗░░██████╗
 ██║░░░██║██╔══██╗██╔════╝
 ╚██╗░██╔╝██║░░██║╚█████╗░
@@ -23,13 +26,11 @@
 ░░░╚═╝░░░░╚════╝░╚═════╝░
 
 Type 'help' to see the list of available commands.
-                </pre>
+             </pre>
         </div>
-        @foreach (string s in output)
-        {
-            @((MarkupString)s)
-        }
-        @command
+        <p class="text-zinc-200 ml-2">
+            <span class="text-violet-400">visitor</span><span class="text-neutral-300">:</span>$ 
+        </p>
     </div>
 </div>
 
@@ -43,19 +44,18 @@ Type 'help' to see the list of available commands.
 
     //Bind doesn't work using a markupstring, find a way around this!!!!
     string command = "";
-    string newInput = "<p class='text-zinc-200 ml-2'><span class='text-violet-400'>visitor</span><span class='text-neutral-300'>:</span>$ <input class='bg-transparent focus:outline-none' @bind='command'/></p>";
 
     //OnInitialized
     protected override void OnInitialized()
     {
-        output.Add(newInput);
+
     }
 
     private void Enter(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
         {
-            output.Add(newInput);
+
         }
     }
 

@@ -1,53 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
-    --neutral600: #525252;
-    --bg: #02A5FF;
-    --headerbg: #a3a3a3;
-    --violet300: #c4b5fd;
+    --bg: #E3F2DC;
+    --appbg: #f0f8ec;
+
+    --green: #507065;
+    --brown: #a69372;
+    --red: #CC311D;
+    --darkgreen: #0A2C30;
+    --grey: #a3a3a3;
+
+    --neutral300: #d4d4d4;
+    --neutral400: #a3a3a3;
 }
 
 html, body {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    background-color: var(--violet300);
+    background-color: var(--bg);
     overflow: hidden;
 }
 
-#button_active{
+
+#button {
+    background-color: var(--neutral400);
+    padding: 0.5rem;
+    box-shadow: inset -1px -1px 0 0 black, inset 1px 1px 0 0 grey, inset -2px -2px 0 0 black, inset 2px 2px 0 0 white;
+}
+
+    #button:hover {
+        background-color: var(--neutral300);
+    }
+
+#button_active {
     border-top: inset 2px black;
     border-left: inset 2px black;
     border-bottom: inset 2px white;
     border-right: inset 2px white;
-    background-color: var(--neutral400);
+    padding: 0.5rem;
 }
 
-#button {
+#close_button {
+    display: flex;
+    position: absolute;
+    right: 0.25rem;
+    top: 0.25rem;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
     box-shadow: inset -1px -1px 0 0 black, inset 1px 1px 0 0 grey, inset -2px -2px 0 0 black, inset 2px 2px 0 0 white;
 }
 
+#close_button:hover{
+    background-color: var(--neutral300)
+}
+
 #header {
-    box-shadow: inset -2px -2px 0 0 black, inset 1px 1px 0 0 #d4d4d4, inset -2.5px -2px 0 0 black, inset 2px 2px 0 0 #d4d4d4;
-    background-color: var(--headerbg);
+    box-shadow: inset -1px -1px 2px 0px, inset 2px 2px 0 0 lightgrey;
+    background-color: var(--grey);
     padding: 1px;
     user-select: none;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    
 }
 
-#header p{
-    color: black;
-    font-weight: 500;
-    margin-left: 5px;
-    font-size: 14px;
+    #header p {
+        color: black;
+        font-weight: 500;
+        margin-left: 5px;
+        font-size: 14px;
+    }
+
+#nav {
+    background-color: var(--grey)
 }
 
 #app {
-    box-shadow: inset -1px -1px 0 0 #171717, inset 1px 1px 0 0 #d4d4d4, inset -1px -1px 0 0 #171717, inset 1px 1px 0 0 #d4d4d4;
+    box-shadow: inset -2px -2px 0px 0px black, inset 1px 1px 0 0 lightgrey;
     position: absolute;
     filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+    position: absolute;
+    cursor: default;
+    background-color: var(--appbg);
 }
 
 /* DEFAULT BLAZOR CSS */
@@ -91,5 +126,3 @@ html, body {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
-
-
