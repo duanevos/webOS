@@ -10,5 +10,5 @@ Packages used:
 - Media player
 
 <b> Current UI </b><br/>
-<img style="width:512px; height:auto;" src="https://cdn.upload.systems/uploads/n7syjxwL.gif" alt="picture of homepage"/>
+<img style="width:512px; height:auto;" src="https://cdn.upload.systems/uploads/kTAmVLVq.gif" alt="picture of homepage"/>
 
