@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <None Remove="Components\CommandLine.razor.css" />
+    <None Remove="Components\Games\Snake.razor.css" />
+    <None Remove="Components\Games\SnakeGame.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Components\CommandLine.razor.css" />
+    <Content Include="Components\Games\Snake.razor.css" />
+    <Content Include="Components\Games\SnakeGame.razor.css" />
   </ItemGroup>
 
 </Project>

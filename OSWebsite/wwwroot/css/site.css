@@ -15,7 +15,7 @@
 }
 
 html, body {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: 'Chakra Petch', sans-serif;
     background-color: var(--bg);
     overflow: hidden;
 }

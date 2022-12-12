@@ -1,0 +1,20 @@
+﻿<div style="z-index: 0;" class="absolute left-6 top-12">
+    <div @onclick=@(() => OnClick("snake")) 
+        @ondblclick=@(() => mainLayout.activeAppHandler("snake"))
+        id="snake"
+        class="@(selectedApp.Equals("snake") ? "border-b-2 border-dashed border-green-600" : "")">
+        
+        <img src="/img/snake.png" class="h-12 w-auto" />
+        <span>Snake</span>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    public MainLayout mainLayout { get; set; }
+    private string selectedApp = "";
+    
+    private void OnClick(string app){
+        selectedApp = app;
+    }
+}

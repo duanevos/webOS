@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using OSWebsite.Components
+@using OSWebsite.Components.Games
 @inject IJSRuntime JSRuntime
 
 
@@ -7,8 +8,10 @@
 
 <div class="flex justify-center items-center h-screen">
     <CascadingValue Value="@mainLayout">
+        <DesktopIcons />
         <AboutMe visibility=@isActiveApp("aboutme") />
         <CommandLine visibility=@isActiveApp("cmd") />
+        <Snake visibility=@isActiveApp("snake") />
     </CascadingValue>
     
     

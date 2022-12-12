@@ -1,0 +1,44 @@
+﻿<div @onclick=@(() => mainLayout.setAppIndex("snake"))
+     hidden="@(!visibility)"
+     id="app"
+     class="cmd h-96 w-5/12 draggable z-@mainLayout.getActiveAppIndex("snake")">
+    <div id="header">
+        <p>
+            C:\games\snake.exe
+        </p>
+    </div>
+    <span @onclick=@(() => mainLayout.closeApp("snake")) id="close_button" class="hover:bg-neutral-300">
+        <i class="fa-solid fa-x font-light text-xs"></i>
+    </span>
+
+    <div id="content" class="h-full w-full flex items-center justify-center">
+        <p id="title">
+            Snake
+        </p>
+
+        <div @onclick=@(() => startGame = !startGame) id="start_button">
+            <p>
+                START
+            </p>
+        </div>
+    </div>
+
+    @if(startGame){
+        <SnakeGame />
+    }
+
+
+</div>
+
+@code {
+    [CascadingParameter]
+    public MainLayout mainLayout { get; set; }
+    [Parameter]
+    public bool visibility { get; set; }
+
+    private bool startGame { get; set; }
+    protected override void OnInitialized()
+    {
+        startGame = false;
+    }
+}

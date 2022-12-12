@@ -1,0 +1,28 @@
+﻿#title {
+    position: relative;
+    letter-spacing: 10px;
+    color: white;
+    font-size: 20px;
+    user-select: none;
+    margin: 0
+}
+
+#start_button {
+    position: absolute;
+    background: white;
+    padding: 0.5rem;
+    width: 150px;
+    text-align: center;
+    bottom: 15px;
+    box-shadow: 3px 3px 1px 0px #6CBA3B;
+    transition: all 0.2s ease-in-out;
+}
+
+    #start_button:hover {
+        transform: scale(1.05);
+        box-shadow: 3px 3px 0px 0px #487C27;
+    }
+
+#app {
+    background-color: #18181b !important;
+}
