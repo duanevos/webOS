@@ -19,8 +19,8 @@
 </div>
 
 @code {
-    public List<string> activeApps { get; set; }
-    public string activeApp { get; set; }
+    public List<string> activeApps { get; set; } = new();
+    public string activeApp { get; set; } = string.Empty;
 
     protected override void OnInitialized()
     {
@@ -54,7 +54,9 @@
 
     public void setAppIndex(string app)
     {
+        //???????
         activeApps.Add(app);
+
         activeApps.Remove(app);
         if (activeApps.Count != 0)
         {
@@ -71,8 +73,12 @@
             {
                 activeApp = "";
             }
-            activeApps.Remove(app);
-            StateHasChanged();
+            activeApps.Remove(app);    
         }
+
+        if(activeApps.Count != 0){
+            activeApp.Last();
+        }
+        StateHasChanged();
     }
 }
