@@ -1,8 +1,8 @@
-﻿<div style="z-index: 0;" class="absolute left-6 top-12">
+﻿<div style="z-index: 0;" class="absolute left-6 top-2">
     <div @onclick=@(() => OnClick("snake")) 
         @ondblclick=@(() => mainLayout.activeAppHandler("snake"))
         id="snake"
-        class="@(selectedApp.Equals("snake") ? "border-b-2 border-dashed border-green-600" : "")">
+        class="@(selectedApp.Equals("snake") ? "" : "")">
         
         <img src="/img/snake.png" class="h-12 w-auto" />
         <span>Snake</span>

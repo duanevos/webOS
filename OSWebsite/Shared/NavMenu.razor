@@ -1,4 +1,4 @@
-﻿<nav id="nav" class="w-screen h-10 bg-neutral-400 text-neutral-900 drop-shadow-lg fixed flex items-center select-none font-semibold">
+﻿<nav id="nav" class="w-screen h-10 bg-neutral-400 text-neutral-900 drop-shadow-lg fixed bottom-0 flex items-center select-none font-semibold">
     <div class="container ml-3 flex capitalize ">
         <a @onclick="@(() => hideStart = !hideStart)" class="h-7 w-16 bg-neutral-300/50 mr-2 hover:bg-neutral-300">
             <div id="@(hideStart ? "button" : "button_active")" class="flex justify-center items-center w-full h-full">
@@ -20,7 +20,7 @@
             </div>
         </a>
 
-        <div hidden="@hideStart" id="startmenu" class="h-48 w-48 fixed bg-neutral-400 top-8 z-10" style="z-index: 1;">
+        <div hidden="@hideStart" id="startmenu" class="h-48 w-48 fixed bg-neutral-400 bottom-9 z-10" style="z-index: 1;">
             <ul class="p-2 text-lg">
                 <li>
                     Shut Down

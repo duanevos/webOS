@@ -77,7 +77,7 @@
         }
 
         if(activeApps.Count != 0){
-            activeApp.Last();
+            activeApp.LastOrDefault();
         }
         StateHasChanged();
     }
